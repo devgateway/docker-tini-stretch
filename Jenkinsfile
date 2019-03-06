@@ -7,9 +7,8 @@ pipeline {
     stage('Build') {
       steps {
         script {
-          env.TAG = env.BRANCH_NAME == 'master' ? 'latest' : env.BRANCH_NAME
           docker.withRegistry('', 'dockerhub-ssemenukha') {
-            docker.build("devgateway/tini-stretch").push(env.TAG)
+            docker.build("devgateway/tini-stretch").push()
           }
         }
       }
