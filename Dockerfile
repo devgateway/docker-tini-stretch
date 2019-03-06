@@ -1,7 +1,7 @@
 # Copyright 2019, Development Gateway, see COPYING
 FROM debian:stretch-slim AS build
 RUN apt-get update \
-  && apt-get install -y cmake gcc
+  && apt-get install --no-install-recommends -y cmake make gcc libc6-dev
 
 WORKDIR /tmp
 ENV TINI_VERSION 0.18.0
